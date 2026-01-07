@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    database: raw
+    tables:
+      - name: customers
+      - name: orders
+        config:
+        #source. table.contig.treshness overrides source. contig. freshness 
+        freshness: 
+          warn_after: 
+            count: 1 
+            period: hour 
+          error_after: 
+            count: 12 
+            period: hour 
+
+        # changed to config in VI. 10
+        loaded_at_field: _elt_loaded_at
