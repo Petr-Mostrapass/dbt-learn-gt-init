@@ -1,0 +1,8 @@
+models:
+  - name: stg_jaffle_shop__orders
+    description: description
+    columns:
+      - name: status
+        data_tests:
+          - accepted_values:
+              values: ['placed','shipped','completed','returned', 'return_pending']
